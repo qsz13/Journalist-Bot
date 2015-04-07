@@ -6,11 +6,15 @@ import json
 
 class BreakingNews():
     api_url = "http://www.breakingnews.com/api/v1/item/"
-    news = None
+    news = []
 
     def get(self):
         url = urllib.urlopen(self.api_url)
-        result = json.load(url)
+        try:
+
+            result = json.load(url)
+        except Exception as e:
+            print e
         self.clean_data(result)
         return self.news
 
@@ -22,4 +26,4 @@ class BreakingNews():
             self.news.append({"content": e['content'], "topics": topics})
 
 
-    
+
