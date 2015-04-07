@@ -1,3 +1,4 @@
+from breaking_news import BreakingNews
 from google_trends import GoogleTrends
 
 __author__ = 'danielqiu'
@@ -11,7 +12,10 @@ socket.socket = socks.socksocket
 
 def main():
     gt = GoogleTrends()
-    print gt.get()
+    #print gt.get()
+    bn = BreakingNews()
+    news =  bn.get()
+    print news
 
 
 
